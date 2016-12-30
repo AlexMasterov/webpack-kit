@@ -1,0 +1,10 @@
+.git/
+build/
+dist/
+node_modules/
+
+*.lock
+*.log
+.*cache
+.ignore
+assets.json

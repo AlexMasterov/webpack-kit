@@ -1,0 +1,72 @@
+{
+  "name": "asm-webpack-kit",
+  "version": "0.1.0",
+  "description": "Modular Webpack Kit",
+  "license": "MIT",
+  "author": {
+    "name": "Alex Masterov",
+    "email": "alex.masterow@gmail.com"
+  },
+  "contributors": "Alex Masterov <alex.masterow@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexMasterov/webpack-kit.git"
+  },
+  "engines": {
+    "node": "^7.0"
+  },
+  "dependencies": {
+    "react": "15.4.1",
+    "react-dom": "15.4.1"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "3.5.0",
+    "babel-core": "6.21.0",
+    "babel-loader": "6.2.10",
+    "babel-plugin-transform-class-properties": "6.19.0",
+    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-preset-latest": "6.16.0",
+    "babel-preset-react": "6.16.0",
+    "better-npm-run": "0.0.13",
+    "clean-webpack-plugin": "0.1.14",
+    "css-loader": "0.26.1",
+    "cssnano": "3.9.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "html-webpack-plugin": "2.24.1",
+    "koa": "2.0.0",
+    "koa-webpack": "0.1.10",
+    "postcss-autoreset": "1.2.1",
+    "postcss-cssnext": "2.9.0",
+    "postcss-loader": "1.2.1",
+    "react-hot-loader": "3.0.0-beta.6",
+    "style-loader": "0.13.1",
+    "sugarss": "0.2.0",
+    "webpack": "2.2.0-rc.3",
+    "webpack-md5-hash": "0.0.5"
+  },
+  "scripts": {
+    "build": "better-npm-run build",
+    "build:dev": "better-npm-run build:dev",
+    "serve": "better-npm-run server"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "webpack",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "build:dev": {
+      "command": "webpack",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "server": {
+      "command": "node --harmony webpack/server/koa2.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}
