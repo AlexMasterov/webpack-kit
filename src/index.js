@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 import App from './containers/App';
 
 import './styles';
 
 const render = (Component) => {
+  if (__DEV__) {
+    const AppContainer = require('react-hot-loader').AppContainer;
+    const Component = () => <AppContainer><Component /></AppContainer>;
+  }
   ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
+    <Component />,
     document.getElementById('root')
   );
 };
