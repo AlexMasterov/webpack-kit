@@ -1,23 +1,27 @@
 const stats = {
+  assets: true,
+  assetsSort: 'size',
   cached: true,
-  cachedAssets: true,
-  chunks: false,
+  children: false,
   chunkModules: false,
   chunkOrigins: false,
+  chunks: true,
+  chunksSort: 'size',
   colors: true,
-  entrypoints: false,
   errorDetails: true,
   errors: true,
   exclude: [],
   excludeModules: [],
   hash: false,
-  maxModules: 0,
-  modules: false,
+  maxModules: 8,
+  modules: true,
+  modulesSort: 'size',
   publicPath: false,
-  reasons: false,
-  source: false,
+  reasons: true,
+  source: true,
   timings: false,
-  version: false
+  version: false,
+  warnings: true
 };
 
 module.exports = (config) => {
