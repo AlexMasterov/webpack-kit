@@ -6,9 +6,12 @@ module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new UglifyJsPlugin({
-      mangle: true,
-      comments: false,
       sourceMap: false,
+      comments: false,
+      mangle: true,
+      mangle: {
+        except: []
+      },
       compress: {
         booleans: true,
         dead_code: true,
