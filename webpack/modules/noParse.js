@@ -6,6 +6,7 @@ const noParse = [
 ];
 
 module.exports = (config) => {
+  config.module.noParse = config.module.noParse || [];
   config.module.noParse = [
     ...config.module.noParse,
     new RegExp(noParse)

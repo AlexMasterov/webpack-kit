@@ -35,8 +35,7 @@ let config = {
   },
 
   module: {
-    rules: [],
-    noParse: []
+    rules: []
   },
 
   plugins: []
