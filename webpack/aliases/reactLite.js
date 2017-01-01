@@ -4,7 +4,7 @@ module.exports = (config) => {
     'react-dom': 'react-lite'
   };
 
-  config.resolve.alias = Object.assign(
+  config.resolve.alias = Object.assign({},
     config.resolve.alias,
     reactLiteAlias
   );

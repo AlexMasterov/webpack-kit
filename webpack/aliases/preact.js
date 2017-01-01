@@ -4,7 +4,7 @@ module.exports = (config) => {
     'react-dom': 'preact-compat/dist/preact-compat'
   };
 
-  config.resolve.alias = Object.assign(
+  config.resolve.alias = Object.assign({},
     config.resolve.alias,
     preactAlias
   );
