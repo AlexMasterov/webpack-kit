@@ -25,6 +25,6 @@ const stats = {
 };
 
 module.exports = (config) => {
-  config.stats = Object.assign(config.stats, stats);
+  config.stats = Object.assign({}, config.stats, stats);
   return config;
 };
