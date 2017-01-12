@@ -4,15 +4,11 @@ const defaultConfig = {
   autoprefixer: {
     add: true,
     remove: true,
-    cascade: false,
-    browsers: [
-      'last 2 versions',
-      'IE > 8'
-    ]
+    cascade: false
   },
   discardComments: {
-  discardDuplicates: true,
-  discardUnused: false,
+    discardDuplicates: true,
+    discardUnused: false,
     removeAll: true
   },
   mergeIdents: true,

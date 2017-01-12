@@ -1,7 +1,6 @@
 const cssnext = require('postcss-cssnext');
 
 const defaultConfig = {
-  browsers: 'last 2 versions',
   features: {
     customProperties: {
       variables: {
