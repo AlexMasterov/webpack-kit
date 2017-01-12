@@ -19,7 +19,7 @@ render(App);
 
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
-    const newApp = require('./containers/App').default
-    render(newApp)
+    const newApp = require('./containers/App').default;
+    render(newApp);
   });
 }
