@@ -1,13 +1,14 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const IS_DEV = process.env.NODE_ENV === 'development';
 
-let extractCSS = new ExtractTextPlugin({
+const extractCSS = new ExtractTextPlugin({
   disable: IS_DEV,
   allChunks: true,
-  filename: 'css/styles-[contenthash:8].css'
+  ignoreOrder: true,
+  filename: 'css/styles-[contenthash:8].css',
 });
 
-let cssLoader = {
+const cssLoader = {
   loader: 'css-loader',
   query: {
     modules: true,
@@ -16,7 +17,7 @@ let cssLoader = {
   }
 };
 
-let postcssLoader = {
+const postcssLoader = {
   loader: 'postcss-loader',
   query: {
     config: __dirname + '/../postcss/postcss.config.js'
@@ -40,8 +41,8 @@ module.exports = (config) => {
       test: /\.sss$/i,
       include: config.context,
       loader: extractCSS.extract({
-        fallbackLoader: 'style-loader',
-        loader: [
+        fallback: 'style-loader',
+        use: [
           cssLoader,
           postcssLoader
         ]
