@@ -1,4 +1,5 @@
 const IS_DEV = process.env.NODE_ENV === 'development';
+const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = (config) => {
   let options = {
@@ -7,8 +8,8 @@ module.exports = (config) => {
     cacheDirectory: __dirname + '/.babelCache',
     presets: [
       ['env', {
-        modules: false,
         loose: true,
+        modules: false,
         exclude: ['transform-regenerator']
       }],
       require.resolve('babel-preset-react')
@@ -19,6 +20,16 @@ module.exports = (config) => {
   if (IS_DEV) {
     options.plugins = [
       'react-hot-loader/babel',
+      ...options.plugins
+    ];
+  }
+
+  if (IS_PROD) {
+    options.plugins = [
+      ['transform-react-remove-prop-types', {
+        mode: 'wrap'
+      }],
+      'transform-react-constant-elements',
       ...options.plugins
     ];
   }
