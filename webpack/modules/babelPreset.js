@@ -8,6 +8,7 @@ module.exports = (config) => {
     cacheDirectory: __dirname + '/.babelCache',
     presets: [
       ['env', {
+        debug: IS_DEV,
         loose: true,
         modules: false,
         exclude: ['transform-regenerator']
@@ -26,10 +27,11 @@ module.exports = (config) => {
 
   if (IS_PROD) {
     options.plugins = [
+      'transform-imports',
+      'transform-react-constant-elements',
       ['transform-react-remove-prop-types', {
         mode: 'wrap'
       }],
-      'transform-react-constant-elements',
       ...options.plugins
     ];
   }
