@@ -47,7 +47,8 @@
     "react-hot-loader": "next",
     "style-loader": "0.16.1",
     "sugarss": "0.2.0",
-    "webpack": "2.3.3"
+    "webpack": "2.3.3",
+    "webpack-chunk-hash": "0.4.0"
   },
   "browserslist": [
     "last 2 versions",

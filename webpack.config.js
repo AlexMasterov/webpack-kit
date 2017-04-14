@@ -55,6 +55,7 @@ config = require('./webpack/modules/noParse')(config);
 
 // Plugins
 config = require('./webpack/plugins/define')(config);
+config = require('./webpack/plugins/hash')(config);
 
 if (IS_PROD) {
   config.devtool = 'source-map';
