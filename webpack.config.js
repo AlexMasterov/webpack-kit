@@ -1,4 +1,6 @@
 const { resolve } = require('path');
+
+const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = process.env.NODE_ENV === 'production';
 
 let config = {
@@ -19,6 +21,7 @@ let config = {
   },
 
   output: {
+    pathinfo: IS_DEV,
     publicPath: '/',
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name]-[chunkhash:8].js',
@@ -52,7 +55,6 @@ config = require('./webpack/modules/noParse')(config);
 
 // Plugins
 config = require('./webpack/plugins/define')(config);
-config = require('./webpack/plugins/md5Hash')(config);
 
 if (IS_PROD) {
   config.devtool = 'source-map';
