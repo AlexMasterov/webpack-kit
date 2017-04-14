@@ -8,7 +8,6 @@ module.exports = (config) => {
     cacheDirectory: __dirname + '/.babelCache',
     presets: [
       ['env', {
-        debug: IS_DEV,
         loose: true,
         modules: false,
         exclude: ['transform-regenerator']
