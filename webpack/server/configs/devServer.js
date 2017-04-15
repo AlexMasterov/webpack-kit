@@ -1,5 +1,5 @@
 function hasTrailingSlash(string) {
-  return string.length > 1 && string.endsWith('/');
+  return (string.length > 1 && string.endsWith('/'));
 }
 
 function normalizePath(string) {
@@ -7,7 +7,7 @@ function normalizePath(string) {
 }
 
 module.exports = (config) => {
-  let publicPath = normalizePath(config.output.publicPath);
+  const publicPath = normalizePath(config.output.publicPath);
 
   return {
     contentBase: config.output.path,
@@ -18,10 +18,10 @@ module.exports = (config) => {
     poll: 1000,
     aggregateTimeout: 300,
     headers: {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
     },
     historyApiFallback: {
-      disableDotRule: true
+      disableDotRule: true,
     },
     quiet: false,
     noInfo: false,
@@ -32,7 +32,7 @@ module.exports = (config) => {
       chunks: false,
       colors: true,
       hash: false,
-      version: false
-    }
+      version: false,
+    },
   };
 };
