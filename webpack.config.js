@@ -3,21 +3,24 @@ const { resolve } = require('path');
 const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = process.env.NODE_ENV === 'production';
 
+// See: https://github.com/webpack/loader-utils/issues/56
+process.noDeprecation = true;
+
 let config = {
   devtool: 'cheap-module-eval-source-map',
   cache: true,
 
   stats: {},
   performance: {
-    hints: false
+    hints: false,
   },
 
   context: resolve(__dirname, 'src'),
 
   entry: {
     bundle: [
-      './index.js'
-    ]
+      './index.js',
+    ],
   },
 
   output: {
@@ -25,7 +28,7 @@ let config = {
     publicPath: '/',
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name]-[chunkhash:8].js',
-    chunkFilename: '[name]-[chunkhash:8].js'
+    chunkFilename: '[name]-[chunkhash:8].js',
   },
 
   resolve: {
@@ -33,15 +36,15 @@ let config = {
     extensions: [],
     modules: [
       resolve(__dirname, 'src'),
-      'node_modules'
-    ]
+      'node_modules',
+    ],
   },
 
   module: {
-    rules: []
+    rules: [],
   },
 
-  plugins: []
+  plugins: [],
 };
 
 // Context
