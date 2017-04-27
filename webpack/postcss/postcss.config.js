@@ -1,9 +1,9 @@
 const postcssPlugins = [
   require('./plugins/autoreset')(),
-  require('./plugins/cssnano')()
+  require('./plugins/cssnano')(),
 ];
 
 module.exports = {
   parser: 'sugarss',
-  plugins: postcssPlugins
+  plugins: postcssPlugins,
 };

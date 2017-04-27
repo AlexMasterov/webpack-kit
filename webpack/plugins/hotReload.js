@@ -1,7 +1,7 @@
 const {
   NoEmitOnErrorsPlugin,
   HotModuleReplacementPlugin,
-  NamedModulesPlugin
+  NamedModulesPlugin,
 } = require('webpack');
 
 module.exports = (config) => {
@@ -11,7 +11,7 @@ module.exports = (config) => {
         'react-hot-loader/patch',
         `webpack-hot-middleware/client?path=${config.output.publicPath}__webpack_hmr`,
         'webpack/hot/only-dev-server',
-        ...config.entry[point]
+        ...config.entry[point],
       ];
     }
   });
@@ -20,7 +20,7 @@ module.exports = (config) => {
     ...config.plugins,
     new NoEmitOnErrorsPlugin(),
     new HotModuleReplacementPlugin(),
-    new NamedModulesPlugin()
+    new NamedModulesPlugin(),
   ];
 
   return config;

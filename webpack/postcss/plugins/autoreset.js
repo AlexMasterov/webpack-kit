@@ -5,8 +5,8 @@ const defaultConfig = {
     margin: 0,
     padding: 0,
     borderRadius: 0,
-    boxSizing: 'border-box'
-  }
+    boxSizing: 'border-box',
+  },
 };
 
 module.exports = (newConfig = {}) => {

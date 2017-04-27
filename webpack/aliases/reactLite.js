@@ -3,7 +3,7 @@ module.exports = (config) => {
     config.resolve.alias,
     {
       'react': 'react-lite',
-      'react-dom': 'react-lite'
+      'react-dom': 'react-lite',
     }
   );
 

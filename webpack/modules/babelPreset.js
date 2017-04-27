@@ -2,7 +2,7 @@ const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = process.env.NODE_ENV === 'production';
 
 module.exports = (config) => {
-  let options = {
+  const options = {
     babelrc: false,
     compact: true,
     cacheDirectory: __dirname + '/.babelCache',
@@ -10,17 +10,17 @@ module.exports = (config) => {
       ['env', {
         loose: true,
         modules: false,
-        exclude: ['transform-regenerator']
+        exclude: ['transform-regenerator'],
       }],
-      require.resolve('babel-preset-react')
+      require.resolve('babel-preset-react'),
     ],
-    plugins: []
+    plugins: [],
   };
 
   if (IS_DEV) {
     options.plugins = [
       'react-hot-loader/babel',
-      ...options.plugins
+      ...options.plugins,
     ];
   }
 
@@ -29,9 +29,9 @@ module.exports = (config) => {
       'transform-imports',
       'transform-react-constant-elements',
       ['transform-react-remove-prop-types', {
-        mode: 'wrap'
+        mode: 'wrap',
       }],
-      ...options.plugins
+      ...options.plugins,
     ];
   }
 

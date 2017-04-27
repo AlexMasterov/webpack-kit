@@ -4,12 +4,12 @@ const defaultConfig = {
   autoprefixer: {
     add: true,
     remove: true,
-    cascade: false
+    cascade: false,
   },
   discardComments: {
     discardDuplicates: true,
     discardUnused: false,
-    removeAll: true
+    removeAll: true,
   },
   mergeIdents: true,
   mergeRules: true,
@@ -18,7 +18,7 @@ const defaultConfig = {
   reduceIdents: false,
   safe: true,
   sourcemap: false,
-  uniqueSelectors: true
+  uniqueSelectors: true,
 };
 
 module.exports = (newConfig = {}) => {

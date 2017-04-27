@@ -1,8 +1,8 @@
-let fileLoader = {
-  loader: 'file-loader'
+const fileLoader = {
+  loader: 'file-loader',
 };
 
-let imageLoader = {
+const imageLoader = {
   loader: 'image-webpack-loader',
   options: {
     progressive: true,
@@ -10,9 +10,9 @@ let imageLoader = {
     optimizationLevel: 7,
     pngquant: {
       speed: 4,
-      quality: '65-90'
-    }
-  }
+      quality: '65-90',
+    },
+  },
 };
 
 module.exports = (config) => {
@@ -23,9 +23,9 @@ module.exports = (config) => {
       include: config.context,
       use: [
         fileLoader,
-        imageLoader
-      ]
-    }
+        imageLoader,
+      ],
+    },
   ];
 
   return config;

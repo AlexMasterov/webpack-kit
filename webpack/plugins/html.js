@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const cwd = process.cwd();
 
 module.exports = (config) => {
@@ -18,8 +19,8 @@ module.exports = (config) => {
       title: `${name} — ${version}`,
       filename: 'index.html',
       favicon: `${cwd}/webpack/server/templates/favicon.ico`,
-      template: `${cwd}/webpack/server/templates/index.html`
-    })
+      template: `${cwd}/webpack/server/templates/index.html`,
+    }),
   ];
 
   return config;

@@ -1,5 +1,5 @@
 module.exports = (config) => {
   return {
-    path: '/__webpack_hmr'
+    path: '/__webpack_hmr',
   };
 };

@@ -1,7 +1,7 @@
 module.exports = (config) => {
   config.resolve.extensions = [
     ...config.resolve.extensions,
-    '.js'
+    '.js',
   ];
 
   config.module.rules = [
@@ -10,8 +10,8 @@ module.exports = (config) => {
       test: /\.js$/i,
       include: config.context,
       loader: 'babel-loader',
-      options: require('./babelPreset.js')(config)
-    }
+      options: require('./babelPreset.js')(config),
+    },
   ];
 
   return config;

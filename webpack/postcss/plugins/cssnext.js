@@ -5,10 +5,10 @@ const defaultConfig = {
     customProperties: {
       variables: {
         maxWidth: '60rem',
-        colorText: '#555'
-      }
-    }
-  }
+        colorText: '#555',
+      },
+    },
+  },
 };
 
 module.exports = (newConfig = {}) => {

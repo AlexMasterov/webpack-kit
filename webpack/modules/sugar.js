@@ -13,26 +13,26 @@ const cssLoader = {
   query: {
     modules: true,
     importLoaders: true,
-    localIdentName: '[hash:base64:5]'
-  }
+    localIdentName: '[hash:base64:5]',
+  },
 };
 
 const postcssLoader = {
   loader: 'postcss-loader',
   query: {
-    config: __dirname + '/../postcss/postcss.config.js'
-  }
+    config: __dirname + '/../postcss/postcss.config.js',
+  },
 };
 
 module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
-    extractCSS
+    extractCSS,
   ];
 
   config.resolve.extensions = [
     ...config.resolve.extensions,
-    '.sss'
+    '.sss',
   ];
 
   config.module.rules = [
@@ -44,10 +44,10 @@ module.exports = (config) => {
         fallback: 'style-loader',
         use: [
           cssLoader,
-          postcssLoader
-        ]
-      })
-    }
+          postcssLoader,
+        ],
+      }),
+    },
   ];
 
   return config;

@@ -18,7 +18,7 @@ app.listen(ENV.port, ENV.host, (err) => {
   }
 
   console.log(
-    'Koa2 dev server listening on host %s:%d',
+    'Koa 2 dev server listening on host %s:%d',
     ENV.host,
     ENV.port
   );

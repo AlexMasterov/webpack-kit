@@ -1,6 +1,9 @@
 const CleanPlugin = require('clean-webpack-plugin');
 
-const cleanDirs = ['css', 'js'];
+const cleanDirs = [
+  'css',
+  'js',
+];
 
 module.exports = (config) => {
   config.plugins = [
@@ -8,8 +11,8 @@ module.exports = (config) => {
     new CleanPlugin(cleanDirs, {
       root: config.output.path,
       verbose: false,
-      dry: false
-    })
+      dry: false,
+    }),
   ];
 
   return config;

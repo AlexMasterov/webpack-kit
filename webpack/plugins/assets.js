@@ -6,8 +6,8 @@ module.exports = (config) => {
     new AssetsPlugin({
       filename: `${config.output.path}/assets.json`,
       fullPath: false,
-      prettyPrint: true
-    })
+      prettyPrint: true,
+    }),
   ];
 
   return config;

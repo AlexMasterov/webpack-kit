@@ -5,7 +5,7 @@ module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new HashedModuleIdsPlugin(),
-    new WebpackChunkHash()
+    new WebpackChunkHash(),
   ];
 
   return config;

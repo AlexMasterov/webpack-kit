@@ -1,5 +1,5 @@
 const {
-  optimize: { UglifyJsPlugin }
+  optimize: { UglifyJsPlugin },
 } = require('webpack');
 
 module.exports = (config) => {
@@ -10,7 +10,7 @@ module.exports = (config) => {
       comments: false,
       mangle: true,
       mangle: {
-        except: []
+        except: [],
       },
       compress: {
         booleans: true,
@@ -24,9 +24,9 @@ module.exports = (config) => {
         unsafe: true,
         unsafe_comps: true,
         unused: true,
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   ];
 
   return config;
