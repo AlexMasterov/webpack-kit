@@ -4,15 +4,12 @@ import App from './containers/App';
 
 import './styles';
 
-const rootElement = document.getElementById('root');
-render(
-  App,
-  rootElement
-);
+const Container = document.getElementById('root');
+
+render(<App />, Container);
 
 if (module.hot) {
   module.hot.accept('./containers/App', () => {
-    const newApp = require('./containers/App').default;
-    render(newApp, rootElement);
+    render(<App />, Container);
   });
 }

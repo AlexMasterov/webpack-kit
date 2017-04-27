@@ -1,5 +1,5 @@
 import React from 'react';
-import { render as renderApp } from 'react-dom';
+import { render as domRender } from 'react-dom';
 
 const render = (Component, Container) => {
   if (module.hot) {
@@ -7,7 +7,7 @@ const render = (Component, Container) => {
     const Component = () => <AppContainer><Component /></AppContainer>;
   }
 
-  renderApp(<Component />, Container);
+  domRender(Component, Container);
 };
 
 export default render;
