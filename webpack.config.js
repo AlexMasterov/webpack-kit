@@ -61,7 +61,7 @@ config = require('./webpack/plugins/define')(config);
 config = require('./webpack/plugins/hash')(config);
 
 if (IS_PROD) {
-  config.devtool = 'source-map';
+  config.devtool = false;
   config = require('./webpack/plugins/uglify')(config);
   config = require('./webpack/plugins/assets')(config);
   config = require('./webpack/plugins/clean')(config);

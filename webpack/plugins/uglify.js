@@ -3,10 +3,13 @@ const {
 } = require('webpack');
 
 module.exports = (config) => {
+  const hasSourceMap =
+    config.devtool && config.devtool.indexOf('source-map') >= 0;
+
   config.plugins = [
     ...config.plugins,
     new UglifyJsPlugin({
-      sourceMap: false,
+      sourceMap: hasSourceMap,
       comments: false,
       mangle: true,
       mangle: {
