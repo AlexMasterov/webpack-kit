@@ -1,5 +1,5 @@
-const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = process.env.NODE_ENV === 'production';
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 module.exports = (config) => {
   const options = {
@@ -14,15 +14,15 @@ module.exports = (config) => {
       }],
       require.resolve('babel-preset-react'),
     ],
-    plugins: [],
+    plugins: [
+      // class { handleClick = () => { } }
+      'transform-class-properties',
+      // { ...todo, completed: true }
+      ['transform-object-rest-spread', {
+        useBuiltIns: true,
+      }],
+    ],
   };
-
-  if (IS_DEV) {
-    options.plugins = [
-      'react-hot-loader/babel',
-      ...options.plugins,
-    ];
-  }
 
   if (IS_PROD) {
     options.plugins = [
@@ -32,6 +32,13 @@ module.exports = (config) => {
         mode: 'wrap',
       }],
       ...options.plugins,
+    ];
+  }
+
+  if (IS_DEV) {
+    options.plugins = [
+      ...options.plugins,
+      'react-hot-loader/babel',
     ];
   }
 
