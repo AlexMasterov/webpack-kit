@@ -4,7 +4,7 @@ const {
 
 module.exports = (config) => {
   const hasSourceMap =
-    config.devtool && config.devtool.indexOf('source-map') >= 0;
+    config.devtool && ~config.devtool.indexOf('source-map');
 
   config.plugins = [
     ...config.plugins,
