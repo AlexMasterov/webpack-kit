@@ -1,7 +1,3 @@
-const fileLoader = {
-  loader: 'file-loader',
-};
-
 const imageLoader = {
   loader: 'image-webpack-loader',
   options: {
@@ -22,7 +18,7 @@ module.exports = (config) => {
       test: /\.(jpe?g|png|gif)$/i,
       include: config.context,
       use: [
-        fileLoader,
+        'file-loader',
         imageLoader,
       ],
     },
