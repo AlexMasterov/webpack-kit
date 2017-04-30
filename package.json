@@ -55,8 +55,10 @@
     "webpack-chunk-hash": "0.4.0"
   },
   "browserslist": [
-    "last 2 versions",
-    "ie >= 10",
-    "safari >= 7"
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "safari >= 7",
+    "ie >= 10"
   ]
 }
