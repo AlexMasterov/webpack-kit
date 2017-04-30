@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
-const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_PROD = process.env.NODE_ENV === 'production';
+const IS_DEV = process.env.NODE_ENV === 'development';
 
 // See: https://github.com/webpack/loader-utils/issues/56
 process.noDeprecation = true;
@@ -49,12 +49,13 @@ let config = {
 
 // Context
 config = require('./webpack/stats')(config);
+config = require('./webpack/node')(config);
 
 // Modules
+config = require('./webpack/modules/noParse')(config);
 config = require('./webpack/modules/babel')(config);
 config = require('./webpack/modules/sugar')(config);
 config = require('./webpack/modules/image')(config);
-config = require('./webpack/modules/noParse')(config);
 
 // Plugins
 config = require('./webpack/plugins/define')(config);
