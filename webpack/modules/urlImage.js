@@ -1,6 +1,6 @@
 const IS_PROD = process.env.NODE_ENV === 'production';
 
-const urlImagesLoader = {
+const urlImageLoader = {
   loader: 'url-loader',
   options: {
     limit: 10000,
@@ -29,15 +29,12 @@ const imageLoader = {
 };
 
 module.exports = (config) => {
-  let loaders = [
-    urlImagesLoader,
+  const loaders = [
+    urlImageLoader,
   ];
 
   if (IS_PROD) {
-    loaders = [
-      ...loaders,
-      imageLoader,
-    ];
+    loaders.concat(imageLoader);
   }
 
   config.module.rules = [
