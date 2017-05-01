@@ -12,7 +12,7 @@ const extractCSS = new ExtractTextPlugin({
 const cssLoader = {
   loader: 'css-loader',
   query: {
-    minimize: require('../postcss/plugins/cssnano')(),
+    minimize: false,
     modules: true,
     importLoaders: true,
     localIdentName: '[hash:base64:5]',
