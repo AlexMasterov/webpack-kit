@@ -1,5 +1,3 @@
-const cssnano = require('cssnano');
-
 const defaultConfig = {
   autoprefixer: {
     add: true,
@@ -21,8 +19,6 @@ const defaultConfig = {
   uniqueSelectors: true,
 };
 
-module.exports = (newConfig = {}) => {
-  return cssnano(
-    Object.assign(defaultConfig, newConfig)
-  );
-};
+module.exports = (config) => (
+  Object.assign({}, defaultConfig, config)
+);

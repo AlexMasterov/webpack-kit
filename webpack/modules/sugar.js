@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const IS_DEV = process.env.NODE_ENV === 'development';
 
 const extractCSS = new ExtractTextPlugin({
@@ -11,6 +12,7 @@ const extractCSS = new ExtractTextPlugin({
 const cssLoader = {
   loader: 'css-loader',
   query: {
+    minimize: require('../postcss/plugins/cssnano')(),
     modules: true,
     importLoaders: true,
     localIdentName: '[hash:base64:5]',
