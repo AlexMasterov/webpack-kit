@@ -2,18 +2,18 @@ const {
   optimize: { CommonsChunkPlugin },
 } = require('webpack');
 
+function isVendor({ resource }) {
+  return resource &&
+    resource.indexOf('node_modules') >= 0 &&
+    resource.match(/\.js$/);
+}
+
 module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: (module) => {
-        // this assumes your vendor imports exist in the node_modules directory
-        return module.context && module.context.indexOf('node_modules') !== -1;
-      },
-    }),
-    new CommonsChunkPlugin({
-      name: 'manifest',
+      name: ['vendor'],
+      minChunks: (module) => isVendor(module),
     }),
   ];
 
