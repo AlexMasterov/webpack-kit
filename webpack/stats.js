@@ -21,7 +21,7 @@ const stats = {
   source: true,
   timings: false,
   version: false,
-  warnings: true
+  warnings: true,
 };
 
 module.exports = (config) => {

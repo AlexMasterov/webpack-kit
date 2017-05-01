@@ -8,9 +8,8 @@ process.noDeprecation = true;
 
 let config = {
   devtool: 'cheap-module-eval-source-map',
-  cache: true,
 
-  stats: {},
+  cache: true,
   performance: {
     hints: false,
   },
