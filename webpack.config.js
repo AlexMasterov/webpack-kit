@@ -28,7 +28,7 @@ let config = {
     publicPath: '/',
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name]-[chunkhash:8].js',
-    chunkFilename: '[name]-[chunkhash:8].js',
+    chunkFilename: 'js/[name]-[chunkhash:8].chunk.js',
   },
 
   resolve: {
