@@ -54,7 +54,7 @@ config = require('./webpack/node')(config);
 config = require('./webpack/modules/noParse')(config);
 config = require('./webpack/modules/babel')(config);
 config = require('./webpack/modules/sugar')(config);
-config = require('./webpack/modules/image')(config);
+config = require('./webpack/modules/urlImages')(config);
 
 // Plugins
 config = require('./webpack/plugins/define')(config);
