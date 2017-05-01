@@ -65,7 +65,7 @@ if (IS_PROD) {
 
   // Plugins
   config = require('./webpack/plugins/clean')(config);
-  config = require('./webpack/plugins/assets')(config);
+  config = require('./webpack/plugins/manifest')(config);
   config = require('./webpack/plugins/uglify')(config);
   config = require('./webpack/plugins/optimizeCss')(config);
 }
