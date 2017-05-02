@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const cwd = process.cwd();
+const {
+  name,
+  version
+} = require(`${cwd}/package.json`);
 
 module.exports = (config) => {
-  const { name, version } = require(`${cwd}/package.json`);
-
   config.plugins = [
     ...config.plugins,
     new HtmlWebpackPlugin({
