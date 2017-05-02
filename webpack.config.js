@@ -3,9 +3,6 @@ const { resolve } = require('path');
 const IS_PROD = process.env.NODE_ENV === 'production';
 const IS_DEV = process.env.NODE_ENV === 'development';
 
-// See: https://github.com/webpack/loader-utils/issues/56
-process.noDeprecation = true;
-
 let config = {
   devtool: 'cheap-module-eval-source-map',
 
@@ -15,7 +12,6 @@ let config = {
   },
 
   context: resolve(__dirname, 'src'),
-
   entry: {
     bundle: [
       './index.js',
@@ -39,11 +35,10 @@ let config = {
     ],
   },
 
+  plugins: [],
   module: {
     rules: [],
   },
-
-  plugins: [],
 };
 
 // Context
@@ -62,7 +57,7 @@ config = require('./webpack/plugins/define')(config);
 config = require('./webpack/plugins/hash')(config);
 
 if (IS_PROD) {
-  config.devtool = false;
+  config.devtool = 'source-map';
 
   // Plugins
   config = require('./webpack/plugins/clean')(config);
