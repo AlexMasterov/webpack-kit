@@ -1,7 +1,6 @@
 const {
   NoEmitOnErrorsPlugin,
   HotModuleReplacementPlugin,
-  NamedModulesPlugin,
 } = require('webpack');
 
 module.exports = (config) => {
@@ -20,7 +19,6 @@ module.exports = (config) => {
     ...config.plugins,
     new NoEmitOnErrorsPlugin(),
     new HotModuleReplacementPlugin(),
-    new NamedModulesPlugin(),
   ];
 
   return config;
