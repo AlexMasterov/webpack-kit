@@ -1,13 +1,15 @@
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const cssnano = require('cssnano');
+
+const processor = require('cssnano');
+const processorOptions = require('../postcss/plugins/cssnano')();
 
 module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
-      cssProcessor: cssnano,
-      cssProcessorOptions: require('../postcss/plugins/cssnano')(),
+      cssProcessor: processor,
+      cssProcessorOptions: processorOptions,
       canPrint: false,
     }),
   ];
