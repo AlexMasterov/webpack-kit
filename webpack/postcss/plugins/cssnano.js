@@ -19,6 +19,6 @@ const defaultConfig = {
   uniqueSelectors: true,
 };
 
-module.exports = (config) => (
-  Object.assign({}, defaultConfig, config)
-);
+module.exports = (config) => {
+  return Object.assign({}, defaultConfig, config);
+};

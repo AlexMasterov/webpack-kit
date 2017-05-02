@@ -1,5 +1,3 @@
-const cssnext = require('postcss-cssnext');
-
 const defaultConfig = {
   features: {
     customProperties: {
@@ -11,8 +9,6 @@ const defaultConfig = {
   },
 };
 
-module.exports = (newConfig = {}) => {
-  return cssnext(
-    Object.assign(defaultConfig, newConfig)
-  );
+module.exports = (config) => {
+  return Object.assign({}, defaultConfig, config);
 };

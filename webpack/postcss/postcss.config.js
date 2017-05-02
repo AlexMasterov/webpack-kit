@@ -1,6 +1,6 @@
-const postcssPlugins = [
-  require('./plugins/autoreset')(),
-];
+const postcssPlugins = {
+  'postcss-autoreset': require('./plugins/autoreset')(),
+};
 
 module.exports = {
   parser: 'sugarss',

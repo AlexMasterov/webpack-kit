@@ -1,5 +1,3 @@
-const autoreset = require('postcss-autoreset');
-
 const defaultConfig = {
   reset: {
     margin: 0,
@@ -9,8 +7,6 @@ const defaultConfig = {
   },
 };
 
-module.exports = (newConfig = {}) => {
-  return autoreset(
-    Object.assign(defaultConfig, newConfig)
-  );
+module.exports = (config) => {
+  return Object.assign({}, defaultConfig, config);
 };
