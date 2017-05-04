@@ -8,7 +8,7 @@ let config = {
 
   cache: true,
   performance: {
-    hints: false,
+    assetFilter: (assetFilename) => !(/\.map$|^favicon\./.test(assetFilename)),
   },
 
   context: resolve(__dirname, 'src'),
