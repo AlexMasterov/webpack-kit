@@ -51,6 +51,7 @@ config = require('./webpack/modules/babel')(config);
 config = require('./webpack/modules/sugar')(config);
 config = require('./webpack/modules/urlFont')(config);
 config = require('./webpack/modules/urlImage')(config);
+config = require('./webpack/modules/urlVideo')(config);
 
 // Plugins
 config = require('./webpack/plugins/define')(config);
