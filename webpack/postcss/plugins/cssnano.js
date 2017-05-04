@@ -1,12 +1,12 @@
 const defaultConfig = {
   autoprefixer: {
-    add: true,
-    remove: true,
-    cascade: false,
+    add: false,
+    supports: false,
+    flexbox: false,
+    grid: false,
+    remove: false,
   },
   discardComments: {
-    discardDuplicates: true,
-    discardUnused: false,
     removeAll: true,
   },
   mergeIdents: true,
