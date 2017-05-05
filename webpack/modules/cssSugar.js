@@ -11,27 +11,23 @@ const extractCSS = new ExtractTextPlugin({
 
 const cssLoader = {
   loader: 'css-loader',
-  query: {
+  options: {
     minimize: false,
     modules: true,
-    importLoaders: true,
+    importLoaders: 1,
     localIdentName: '[hash:base64:5]',
   },
 };
 
 const postcssLoader = {
   loader: 'postcss-loader',
-  query: {
+  options: {
+    parser: 'sugarss',
     config: __dirname + '/../postcss/postcss.config.js',
   },
 };
 
 module.exports = (config) => {
-  config.plugins = [
-    ...config.plugins,
-    extractCSS,
-  ];
-
   config.resolve.extensions = [
     ...config.resolve.extensions,
     '.sss',
@@ -50,6 +46,11 @@ module.exports = (config) => {
         ],
       }),
     },
+  ];
+
+  config.plugins = [
+    ...config.plugins,
+    extractCSS,
   ];
 
   return config;

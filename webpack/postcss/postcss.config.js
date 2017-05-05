@@ -4,6 +4,5 @@ const postcssPlugins = {
 };
 
 module.exports = {
-  parser: 'sugarss',
   plugins: postcssPlugins,
 };
