@@ -46,7 +46,7 @@ config = require('./webpack/node')(config);
 // Modules
 config = require('./webpack/modules/noParse')(config);
 config = require('./webpack/modules/babel')(config);
-config = require('./webpack/modules/cssSugar')(config);
+config = require('./webpack/modules/css')(config);
 config = require('./webpack/modules/urlFont')(config);
 config = require('./webpack/modules/urlImage')(config);
 config = require('./webpack/modules/urlVideo')(config);
