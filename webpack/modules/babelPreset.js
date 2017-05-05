@@ -1,5 +1,4 @@
-const IS_PROD = process.env.NODE_ENV === 'production';
-const IS_DEV = process.env.NODE_ENV === 'development';
+const { isProd, isDev } = require('../env');
 
 module.exports = (config) => {
   const options = {
@@ -24,7 +23,7 @@ module.exports = (config) => {
     ],
   };
 
-  if (IS_PROD) {
+  if (isProd) {
     options.plugins = [
       'transform-imports',
       'transform-react-constant-elements',
@@ -35,7 +34,7 @@ module.exports = (config) => {
     ];
   }
 
-  if (IS_DEV) {
+  if (isDev) {
     options.plugins = [
       ...options.plugins,
       'react-hot-loader/babel',

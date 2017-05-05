@@ -1,4 +1,4 @@
-const IS_PROD = process.env.NODE_ENV === 'production';
+const { isProd } = require('../env');
 
 const urlImageLoader = {
   loader: 'url-loader',
@@ -33,7 +33,7 @@ module.exports = (config) => {
     urlImageLoader,
   ];
 
-  if (IS_PROD) {
+  if (isProd) {
     loaders.concat(imageLoader);
   }
 

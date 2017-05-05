@@ -1,7 +1,5 @@
 const { resolve } = require('path');
-
-const IS_PROD = process.env.NODE_ENV === 'production';
-const IS_DEV = process.env.NODE_ENV === 'development';
+const { isProd, isDev } = require('./webpack/env');
 
 let config = {
   devtool: 'cheap-module-eval-source-map',
@@ -19,7 +17,7 @@ let config = {
   },
 
   output: {
-    pathinfo: IS_DEV,
+    pathinfo: isDev,
     publicPath: '/',
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name]-[chunkhash:8].js',
@@ -57,7 +55,7 @@ config = require('./webpack/modules/urlVideo')(config);
 config = require('./webpack/plugins/define')(config);
 config = require('./webpack/plugins/hash')(config);
 
-if (IS_PROD) {
+if (isProd) {
   config.devtool = 'source-map';
 
   // Plugins
