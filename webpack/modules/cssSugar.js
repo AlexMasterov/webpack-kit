@@ -1,9 +1,8 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-const IS_DEV = process.env.NODE_ENV === 'development';
+const { isDev } = require('../env');
 
 const extractCSS = new ExtractTextPlugin({
-  disable: IS_DEV,
+  disable: isDev,
   allChunks: true,
   ignoreOrder: true,
   filename: 'css/styles-[contenthash:8].css',

@@ -1,9 +1,8 @@
 const WebpackChunkHash = require('webpack-chunk-hash');
-
-const IS_DEV = process.env.NODE_ENV === 'development';
+const { isDev } = require('../env');
 
 module.exports = (config) => {
-  const ModuleNamePlugin = IS_DEV
+  const ModuleNamePlugin = isDev
     ? require('webpack').NamedModulesPlugin
     : require('webpack').HashedModuleIdsPlugin;
 
