@@ -18,24 +18,28 @@ const cssLoader = {
   },
 };
 
-const postcssLoader = {
-  loader: 'postcss-loader',
-  options: {
-    parser: 'sugarss',
-    config: __dirname + '/../postcss/postcss.config.js',
-  },
+const postcssLoader= ({ resource }) => {
+  const isSugar = resource.toLowerCase().endsWith('.sss');
+  return {
+    loader: 'postcss-loader',
+    options: {
+      parser: isSugar ? 'sugarss' : false,
+      config: __dirname + '/../postcss/postcss.config.js',
+    },
+  };
 };
 
 module.exports = (config) => {
   config.resolve.extensions = [
     ...config.resolve.extensions,
+    '.css',
     '.sss',
   ];
 
   config.module.rules = [
     ...config.module.rules,
     {
-      test: /\.sss$/i,
+      test: /\.(css|sss)$/i,
       include: config.context,
       loader: extractCSS.extract({
         fallback: 'style-loader',
