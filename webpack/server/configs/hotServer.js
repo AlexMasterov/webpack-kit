@@ -1,6 +1,6 @@
-module.exports = (config) => {
+module.exports = ({ output }) => {
   return {
     log: false,
-    path: '/__webpack_hmr',
+    path: `${output.publicPath}/__webpack_hmr`,
   };
 };

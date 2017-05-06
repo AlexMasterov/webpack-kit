@@ -1,17 +1,7 @@
-function hasTrailingSlash(string) {
-  return (string.length > 1 && string.endsWith('/'));
-}
-
-function normalizePath(string) {
-  return hasTrailingSlash(string) ? string.slice(0, -1) : string;
-}
-
-module.exports = (config) => {
-  const publicPath = normalizePath(config.output.publicPath);
-
+module.exports = ({ output }) => {
   return {
-    contentBase: config.output.path,
-    publicPath: publicPath,
+    contentBase: output.path,
+    publicPath: output.publicPath,
     hot: true,
     https: true,
     compress: false,
