@@ -4,7 +4,8 @@ module.exports = (config) => {
   const options = {
     babelrc: false,
     compact: true,
-    cacheDirectory: __dirname + '/.babelCache',
+    cacheDirectory: `${__dirname}/.babelCache`,
+
     presets: [
       ['env', {
         loose: true,
@@ -13,6 +14,7 @@ module.exports = (config) => {
       }],
       require.resolve('babel-preset-react'),
     ],
+
     plugins: [
       // class { handleClick = () => { } }
       'transform-class-properties',
