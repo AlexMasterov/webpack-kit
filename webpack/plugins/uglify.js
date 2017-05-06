@@ -2,14 +2,16 @@ const {
   optimize: { UglifyJsPlugin },
 } = require('webpack');
 
-module.exports = (config) => {
-  const hasSourceMap =
-    config.devtool && ~config.devtool.indexOf('source-map');
+function isSourceMap({ devtool }) {
+  return devtool &&
+    devtool.indexOf('source-map') >= 0;
+}
 
+module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new UglifyJsPlugin({
-      sourceMap: hasSourceMap,
+      sourceMap: isSourceMap(config),
       comments: false,
       mangle: true,
       mangle: {
