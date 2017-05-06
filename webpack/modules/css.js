@@ -18,13 +18,17 @@ const cssLoader = {
   },
 };
 
-const postcssLoader= ({ resource }) => {
-  const isSugar = resource.toLowerCase().endsWith('.sss');
+function isSugar({ resource }) {
+  return resource &&
+    resource.match(/\.sss$/);
+}
+
+const postcssLoader= (module) => {
   return {
     loader: 'postcss-loader',
     options: {
-      parser: isSugar ? 'sugarss' : false,
-      config: __dirname + '/../postcss/postcss.config.js',
+      parser: isSugar(module) ? 'sugarss' : false,
+      config: require.resolve('../postcss/postcss.config.js'),
     },
   };
 };
