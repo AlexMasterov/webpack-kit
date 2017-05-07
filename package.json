@@ -28,7 +28,7 @@
     "react-tap-event-plugin": "2.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "6.7.7",
+    "autoprefixer": "7.0.0",
     "babel-core": "6.24.1",
     "babel-loader": "7.0.0",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -55,7 +55,7 @@
     "style-loader": "0.17.0",
     "sugarss": "0.2.0",
     "url-loader": "0.5.8",
-    "webpack": "2.5.0",
+    "webpack": "2.5.1",
     "webpack-chunk-hash": "0.4.0",
     "webpack-hot-middleware": "2.18.0",
     "webpack-manifest-plugin": "1.1.0"
