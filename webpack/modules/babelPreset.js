@@ -10,7 +10,17 @@ module.exports = (config) => {
       ['env', {
         loose: true,
         modules: false,
+        useBuiltIns: false,
         exclude: ['transform-regenerator'],
+        targets: {
+          browsers: [
+            'last 4 versions',
+            '> 1%',
+            'Firefox ESR',
+            'safari >= 7',
+            'ie >= 10',
+          ],
+        },
       }],
       require.resolve('babel-preset-react'),
     ],
