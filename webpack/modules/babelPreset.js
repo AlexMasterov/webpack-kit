@@ -25,14 +25,7 @@ module.exports = (config) => {
       require.resolve('babel-preset-react'),
     ],
 
-    plugins: [
-      // class { handleClick = () => { } }
-      'transform-class-properties',
-      // { ...todo, completed: true }
-      ['transform-object-rest-spread', {
-        useBuiltIns: true,
-      }],
-    ],
+    plugins: [],
   };
 
   if (isProd) {
