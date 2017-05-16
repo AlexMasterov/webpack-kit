@@ -28,7 +28,9 @@ const postcssLoader= (module) => {
     loader: 'postcss-loader',
     options: {
       parser: isSugar(module) ? 'sugarss' : false,
-      config: require.resolve('../postcss/postcss.config.js'),
+      config: {
+        path: require.resolve('../postcss/postcss.config.js'),
+      },
     },
   };
 };
