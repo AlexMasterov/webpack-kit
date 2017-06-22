@@ -54,6 +54,7 @@ config = require('./webpack/modules/urlVideo')(config);
 // Plugins
 config = require('./webpack/plugins/define')(config);
 config = require('./webpack/plugins/hash')(config);
+config = require('./webpack/plugins/moduleConcat')(config);
 
 if (isProd) {
   config.devtool = 'source-map';
