@@ -54,7 +54,6 @@ config = require('./webpack/modules/urlVideo')(config);
 // Plugins
 config = require('./webpack/plugins/define')(config);
 config = require('./webpack/plugins/hash')(config);
-config = require('./webpack/plugins/moduleConcat')(config);
 
 if (isProd) {
   config.devtool = 'source-map';
@@ -66,6 +65,7 @@ if (isProd) {
   config = require('./webpack/plugins/clean')(config);
   config = require('./webpack/plugins/manifest')(config);
   config = require('./webpack/plugins/commonsChunk')(config);
+  config = require('./webpack/plugins/moduleConcat')(config);
   config = require('./webpack/plugins/uglify')(config);
   config = require('./webpack/plugins/optimizeCss')(config);
 }
