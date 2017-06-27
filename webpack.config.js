@@ -6,7 +6,7 @@ let config = {
 
   cache: true,
   performance: {
-    assetFilter: (assetFilename) => !(/\.map$|^favicon\./.test(assetFilename)),
+    hints: false,
   },
 
   context: resolve(__dirname, 'src'),
@@ -58,6 +58,9 @@ config = require('./webpack/plugins/moduleConcat')(config);
 
 if (isProd) {
   config.devtool = 'source-map';
+
+  // Context
+  config = require('./webpack/perf')(config);
 
   // Plugins
   config = require('./webpack/plugins/clean')(config);

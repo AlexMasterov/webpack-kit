@@ -16,6 +16,7 @@ const stats = {
   maxModules: 8,
   modules: true,
   modulesSort: 'size',
+  performance: false,
   publicPath: false,
   reasons: true,
   source: true,
