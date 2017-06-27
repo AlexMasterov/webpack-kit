@@ -6,7 +6,7 @@ module.exports = (config) => {
     new ManifestPlugin({
       basePath: '',
       publicPath: config.output.publicPath,
-      fileName: 'assets.json',
+      fileName: 'manifest.json',
     }),
   ];
 

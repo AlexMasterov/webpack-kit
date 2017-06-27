@@ -14,6 +14,10 @@ let config = {
     bundle: [
       './index.js',
     ],
+    vendor: [
+      'react',
+      'react-dom',
+    ],
   },
 
   output: {

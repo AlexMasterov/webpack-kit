@@ -2,6 +2,11 @@ const {
   optimize: { CommonsChunkPlugin },
 } = require('webpack');
 
+function isCss({ resource }) {
+  return resource &&
+    resource.match(/\.(css|sss)$/);
+}
+
 function isVendor({ resource }) {
   return resource &&
     resource.indexOf('node_modules') >= 0 &&
@@ -13,7 +18,14 @@ module.exports = (config) => {
     ...config.plugins,
     new CommonsChunkPlugin({
       name: 'vendor',
-      minChunks: (module) => isVendor(module),
+      minChunks: (module) => {
+        if (isCss(module)) return false;
+        return isVendor(module);
+      },
+    }),
+    new CommonsChunkPlugin({
+      name: 'manifest',
+      minChunks: Infinity,
     }),
   ];
 
