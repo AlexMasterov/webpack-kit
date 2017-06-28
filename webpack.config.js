@@ -45,7 +45,6 @@ let config = {
 
 // Context
 config = require('./webpack/stats')(config);
-config = require('./webpack/node')(config);
 
 // Modules
 config = require('./webpack/modules/noParse')(config);
@@ -64,6 +63,7 @@ if (isProd) {
 
   // Context
   config = require('./webpack/perf')(config);
+  config = require('./webpack/node')(config);
 
   // Plugins
   config = require('./webpack/plugins/clean')(config);
