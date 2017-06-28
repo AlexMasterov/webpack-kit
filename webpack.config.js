@@ -26,6 +26,8 @@ let config = {
     path: resolve(__dirname, 'dist'),
     filename: 'js/[name]-[chunkhash:8].js',
     chunkFilename: 'js/[name]-[chunkhash:8].chunk.js',
+    devtoolModuleFilenameTemplate: ({ absoluteResourcePath }) =>
+      resolve(absoluteResourcePath).replace(/\\/g, '/'),
   },
 
   resolve: {
