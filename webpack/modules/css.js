@@ -23,7 +23,7 @@ function isSugar({ resource }) {
     resource.match(/\.sss$/);
 }
 
-const postcssLoader= (module) => {
+const postcssLoader = (module) => {
   return {
     loader: 'postcss-loader',
     options: {
