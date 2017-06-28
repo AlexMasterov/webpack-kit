@@ -17,6 +17,7 @@ module.exports = (config) => {
       },
       compress: {
         booleans: true,
+        comparisons: false,
         dead_code: true,
         drop_console: true,
         drop_debugger: true,
@@ -28,6 +29,10 @@ module.exports = (config) => {
         unsafe_comps: true,
         unused: true,
         warnings: false,
+      },
+      output: {
+        comments: false,
+        ascii_only: true,
       },
     }),
   ];
