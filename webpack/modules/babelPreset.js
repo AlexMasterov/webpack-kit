@@ -25,7 +25,9 @@ module.exports = (config) => {
       require.resolve('babel-preset-react'),
     ],
 
-    plugins: [],
+    plugins: [
+      'syntax-dynamic-import',
+    ],
   };
 
   if (isProd) {
