@@ -1,8 +1,31 @@
 const { resolve } = require('path');
 const { isProd, isDev } = require('./webpack/env');
 
-let config = {
-  devtool: 'cheap-module-eval-source-map',
+const devEnv = [
+  'stats',
+  'modules/noParse',
+  'modules/babel',
+  'modules/css',
+  'modules/urlFont',
+  'modules/urlImage',
+  'modules/urlVideo',
+  'plugins/define',
+  'plugins/hash',
+];
+
+const prodEnv = [
+  'perf',
+  'node',
+  'plugins/clean',
+  'plugins/manifest',
+  'plugins/commonsChunk',
+  'plugins/moduleConcat',
+  'plugins/uglify',
+  'plugins/optimizeCss',
+];
+
+const config = {
+  devtool: isDev ? 'cheap-module-eval-source-map' : 'source-map',
 
   cache: true,
   performance: {
@@ -45,35 +68,9 @@ let config = {
   },
 };
 
-// Context
-config = require('./webpack/stats')(config);
-
-// Modules
-config = require('./webpack/modules/noParse')(config);
-config = require('./webpack/modules/babel')(config);
-config = require('./webpack/modules/css')(config);
-config = require('./webpack/modules/urlFont')(config);
-config = require('./webpack/modules/urlImage')(config);
-config = require('./webpack/modules/urlVideo')(config);
-
-// Plugins
-config = require('./webpack/plugins/define')(config);
-config = require('./webpack/plugins/hash')(config);
-
-if (isProd) {
-  config.devtool = 'source-map';
-
-  // Context
-  config = require('./webpack/perf')(config);
-  config = require('./webpack/node')(config);
-
-  // Plugins
-  config = require('./webpack/plugins/clean')(config);
-  config = require('./webpack/plugins/manifest')(config);
-  config = require('./webpack/plugins/commonsChunk')(config);
-  config = require('./webpack/plugins/moduleConcat')(config);
-  config = require('./webpack/plugins/uglify')(config);
-  config = require('./webpack/plugins/optimizeCss')(config);
-}
-
-module.exports = config;
+module.exports = devEnv
+  .concat(isProd ? prodEnv : [])
+  .reduce(
+    (config, filepath) => require(`./webpack/${filepath}`)(config),
+    config
+  );
