@@ -51,7 +51,7 @@
     "react-hot-loader": "next",
     "style-loader": "0.18.2",
     "sugarss": "1.0.0",
-    "uglify-es": "3.0.20",
+    "uglify-es": "3.0.21",
     "uglifyjs-webpack-plugin": "0.4.6",
     "url-loader": "0.5.9",
     "webpack": "3.0.0",
