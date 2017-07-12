@@ -11,6 +11,7 @@ const devEnv = [
   'modules/urlVideo',
   'plugins/define',
   'plugins/hash',
+  'plugins/commonsChunk',
 ];
 
 const prodEnv = [
@@ -18,7 +19,6 @@ const prodEnv = [
   'node',
   'plugins/clean',
   'plugins/manifest',
-  'plugins/commonsChunk',
   'plugins/moduleConcat',
   'plugins/uglify',
   'plugins/optimizeCss',
@@ -54,6 +54,7 @@ const config = {
   },
 
   resolve: {
+    cacheWithContext: true,
     alias: {},
     extensions: [],
     modules: [
