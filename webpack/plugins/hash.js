@@ -1,4 +1,5 @@
-const WebpackChunkHash = require('webpack-chunk-hash');
+const { NamedChunksPlugin } = require('webpack');
+const { relative } = require('path');
 const { isDev } = require('../env');
 
 module.exports = (config) => {
@@ -8,8 +9,12 @@ module.exports = (config) => {
 
   config.plugins = [
     ...config.plugins,
-    new ModuleNamePlugin(),
-    new WebpackChunkHash(),
+    new NamedChunksPlugin((chunk) => {
+      if (chunk.name) return chunk.name;
+      return chunk
+        .mapModules(({ context, request }) => relative(context, request))
+        .join('_');
+    }),
   ];
 
   return config;
