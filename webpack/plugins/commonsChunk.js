@@ -24,7 +24,7 @@ module.exports = (config) => {
       },
     }),
     new CommonsChunkPlugin({
-      name: 'manifest',
+      name: 'runtime',
       minChunks: Infinity,
     }),
   ];
