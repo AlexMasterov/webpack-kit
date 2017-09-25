@@ -65,6 +65,7 @@ const config = {
 
   plugins: [],
   module: {
+    strictExportPresence: true,
     rules: [],
   },
 };

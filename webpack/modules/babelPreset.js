@@ -11,8 +11,8 @@ module.exports = (config) => {
         loose: true,
         modules: false,
         useBuiltIns: false,
-        exclude: ['transform-regenerator'],
         targets: {
+          node: 'current',
           browsers: [
             'last 4 versions',
             '> 1%',
