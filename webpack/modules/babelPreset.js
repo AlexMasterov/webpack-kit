@@ -44,6 +44,7 @@ module.exports = (config) => {
   if (isDev) {
     options.plugins = [
       ...options.plugins,
+      'transform-react-jsx-source',
       'react-hot-loader/babel',
     ];
   }
