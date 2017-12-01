@@ -2,11 +2,11 @@ const { NamedChunksPlugin } = require('webpack');
 const { relative } = require('path');
 const { isDev } = require('../env');
 
-module.exports = (config) => {
-  const ModuleNamePlugin = isDev
-    ? require('webpack').NamedModulesPlugin
-    : require('webpack').HashedModuleIdsPlugin;
+const ModuleNamePlugin = isDev
+  ? require('webpack').NamedModulesPlugin
+  : require('webpack').HashedModuleIdsPlugin;
 
+module.exports = (config) => {
   config.plugins = [
     ...config.plugins,
     new NamedChunksPlugin((chunk) => {
