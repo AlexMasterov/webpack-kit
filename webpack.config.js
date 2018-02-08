@@ -17,6 +17,7 @@ const devEnv = [
 const prodEnv = [
   'perf',
   'node',
+  'modules/image',
   'plugins/clean',
   'plugins/manifest',
   'plugins/moduleConcat',

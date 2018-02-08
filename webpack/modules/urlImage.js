@@ -1,48 +1,31 @@
-const { isProd } = require('../env');
-
-const urlImageLoader = {
+const urlLoader = {
   loader: 'url-loader',
   options: {
-    limit: 10000,
+    limit: 10 * 1024,
     name: 'images/[name].[hash:8].[ext]',
   },
 };
 
-const imageLoader = {
-  loader: 'image-webpack-loader',
+const svgUrlLoader = {
+  loader: 'svg-url-loader',
   options: {
-    mozjpeg: {
-      quality: 65,
-      progressive: true,
-    },
-    optipng: {
-      optimizationLevel: 7,
-    },
-    pngquant: {
-      speed: 4,
-      quality: '65-90',
-    },
-    gifsicle: {
-      interlaced: false,
-    },
+    limit: 10 * 1024,
+    noquotes: true,
   },
 };
 
 module.exports = (config) => {
-  const loaders = [
-    urlImageLoader,
-  ];
-
-  if (isProd) {
-    loaders.concat(imageLoader);
-  }
-
   config.module.rules = [
     ...config.module.rules,
     {
-      test: /\.(jpe?g|png|gif|svg|bmp)$/i,
+      test: /\.(jpe?g|png|gif)$/,
       include: config.context,
-      use: loaders,
+      use: urlLoader,
+    },
+    {
+      test: /\.svg$/,
+      include: config.context,
+      use: svgUrlLoader,
     },
   ];
 
