@@ -1,6 +1,9 @@
 module.exports = ({ output }) => {
   return {
-    log: false,
+    https: false,
+    logLevel: 'silent',
+    noInfo: true,
     path: `${output.publicPath}__webpack_hmr`,
+    reload: true,
   };
 };

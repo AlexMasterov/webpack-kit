@@ -5,7 +5,6 @@ const cwd = process.cwd();
 // Configure Hot Reload
 const configs = [
   'plugins/html',
-  'plugins/hotReload',
 ];
 
 const config = configs.reduce(
@@ -21,7 +20,7 @@ const compiler = webpack(config);
 
 // Configure Koa middleware
 const devConfig = require('../configs/devServer')(config);
-const hotConfig = require('../configs/hotServer')(config);
+const hotConfig = require('../configs/hotClient')(config);
 
 module.exports = koaMiddleware({
   compiler: compiler,
